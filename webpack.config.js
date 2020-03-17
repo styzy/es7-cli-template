@@ -12,7 +12,8 @@ const webpackConfig = {
         filename: `[name].bundle.js`
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
@@ -21,20 +22,11 @@ const webpackConfig = {
             },
             {
                 test: /\.css$/,
-                use: [
-                    { loader: MiniCssExtractPlugin.loader },
-                    { loader: 'css-loader' },
-                    { loader: 'postcss-loader' }
-                ]
+                use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader' }, { loader: 'postcss-loader' }]
             },
             {
                 test: /\.styl$/,
-                use: [
-                    { loader: MiniCssExtractPlugin.loader },
-                    { loader: 'css-loader' },
-                    { loader: 'postcss-loader' },
-                    { loader: 'stylus-loader' }
-                ]
+                use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader' }, { loader: 'postcss-loader' }, { loader: 'stylus-loader' }]
             },
             {
                 test: /\.(gif|jpg|jpeg|png|svg|ttf)$/,
@@ -50,7 +42,7 @@ const webpackConfig = {
         new MiniCssExtractPlugin({
             filename: '[name].bundle.css',
             chunkFilename: '[id].css',
-            ignoreOrder: false, // Enable to remove warnings about conflicting order
+            ignoreOrder: false // Enable to remove warnings about conflicting order
         }),
         new HtmlWebpackPlugin({
             title: 'es7-cli',
